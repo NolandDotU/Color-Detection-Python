@@ -39,9 +39,9 @@ while True:
             x, y, w, h = cv2.boundingRect(contour)
             color_name = "Color"  
 
-            # Determine which color it is
+    
             if cv2.pointPolygonTest(contour, (x + w // 2, y + h // 2), False) >= 0:
-                # Check for the center pixel
+
                 if mask_light_blue[y + h // 2, x + w // 2] > 0:
                     color_name = "Light Blue"
                 elif mask_orange[y + h // 2, x + w // 2] > 0:
@@ -49,7 +49,6 @@ while True:
                 elif mask_red[y + h // 2, x + w // 2] > 0:
                     color_name = "Red Maroon"
 
-            # Draw the rectangle and label
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
             cv2.putText(
                 frame,
@@ -69,3 +68,4 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+    
